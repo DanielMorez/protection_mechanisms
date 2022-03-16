@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # other apps
     'axes',
     'app',
+    'conditional_сompilation',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,8 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # Custom middleware
+    'conditional_сompilation.middleware.AutomaticUserLoginMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'axes.middleware.AxesMiddleware',
@@ -129,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AXES SETTINGS
 AXES_ENABLED = True
-AXES_USE_USER_AGENT = True
+AXES_USE_USER_AGENT = False
 AXES_COOLOFF_TIME = timedelta(seconds=10)  # Ограничение по времени (в часах)
 AXES_FAILURE_LIMIT = 3  # Количество неудачных попыток
 AXES_LOCK_OUT_AT_FAILURE = True  # Блокировать IP после неудачной попытки входа
@@ -141,3 +144,6 @@ AUTHENTICATION_BACKENDS = [
     # Django ModelBackend is the default authentication backend.
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+# The custom field that contains the username under which the user should be automatically authorized
+AUTOLOGIN_USER = None
