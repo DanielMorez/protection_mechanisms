@@ -60,3 +60,7 @@ AXES_LOCK_OUT_AT_FAILURE = True  # Блокировать IP после неуд
 Если поле `username` оставить пустым, приложение будет работать как и при команде `runserver`.
 
 <i>P.S.: Перед запуском убедитесь, что пользователь с таким юзернеймом существует</i>
+
+<h2>Тесты</h2>
+
+`python manage.py test conditional_сompilation.tests`
