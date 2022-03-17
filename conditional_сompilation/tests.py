@@ -1,7 +1,6 @@
-from django.contrib import auth
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.http import HttpRequest
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.contrib.auth.models import User
 from string import ascii_uppercase
 from random import choice
