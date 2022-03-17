@@ -16,7 +16,7 @@ AXES_FAILURE_LIMIT = 3  # Количество неудачных попыток
 AXES_LOCK_OUT_AT_FAILURE = True  # Блокировать IP после неудачной попытки входа
 ```
 
-<h2>Запуск с ключом активации</h2>
+<h1>Запуск с ключом активации</h1>
 
 `python manage autologin -u {username}`
 
@@ -26,6 +26,6 @@ AXES_LOCK_OUT_AT_FAILURE = True  # Блокировать IP после неуд
 
 <i>P.S.: Перед запуском убедитесь, что пользователь с таким юзернеймом существует</i>
 
-<h2>Тесты</h2>
+<h1>Тесты</h1>
 
 `python manage.py test conditional_сompilation.tests`
