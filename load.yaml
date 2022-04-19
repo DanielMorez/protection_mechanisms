@@ -1,0 +1,13 @@
+phantom:
+  address: host.docker.internal:8000
+  header_http: "1.1"
+  headers:
+    - "[Host: 127.0.0.1]"
+  uris:
+    - /
+  load_profile:
+    load_type: rps
+    schedule: const(1,30s)
+  ssl: true
+console:
+  enabled: true

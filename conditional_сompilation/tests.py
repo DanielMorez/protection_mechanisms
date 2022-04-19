@@ -1,7 +1,6 @@
-from django.contrib import auth
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.http import HttpRequest
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.contrib.auth.models import User
 from string import ascii_uppercase
 from random import choice
@@ -16,6 +15,15 @@ class LoginTestCase(TestCase):
             'password': 'password'
         }
         User.objects.create_user(**self.credentials)
+
+        self.simple_passwords = [
+            {'username': 'admin', 'password': 'admin'},
+            {'username': 'root', 'password': 'root'},
+            {'username': 'denis', 'password': 'denis'},
+        ]
+
+    def test_active_debugger(self):
+        self.assertFalse(DEBUG, msg='Включен деббагер')
 
     def test_empty_password(self):
         request = HttpRequest()
@@ -44,6 +52,7 @@ class LoginTestCase(TestCase):
         request = HttpRequest()
         user = authenticate(request, **self.credentials)
         self.assertFalse(user, 'AXES не заблокировал попытки входа')
+
 
 
 
