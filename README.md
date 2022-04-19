@@ -29,3 +29,22 @@ AXES_LOCK_OUT_AT_FAILURE = True  # Блокировать IP после неуд
 <h1>Тесты</h1>
 
 `python manage.py test conditional_сompilation.tests`
+
+
+<h1>Нагрузочное тестирование</h1>
+
+<i>У вас должен быть установлен Docker</i>
+
+1. В конфигурационном файле `load.yaml` установите порт, на котором работает ваше локальное приложение. 
+Для Django порт по умолчанию `8000`.
+   
+2. Добавьте в корень проекта `token.txt`. Получить его можно на <a href='https://overload.yandex.net'>overload.yandex.net.</a>. 
+Далее на этом сервисе вы сможете получить статистику по нагузке.
+
+3. Запускаем танк из docker образа: `docker run -v {путь_до_проекта}:/var/loadtest --net host -it --entrypoint /bin/bash direvius/yandex-tank
+`
+   
+4. Далее из под `[tank]root@docker-desktop` нужно выполнить  <a href='https://overload.yandex.net/mainpage/guide#install'>команды PIP-based installation</a>. 
+   Иначе вы не сможете воспользоваться overload.yandex.net
+   
+5. Теперь вы готовы тестировать: `yandex-tank -c load.yaml`

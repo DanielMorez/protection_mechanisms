@@ -16,6 +16,15 @@ class LoginTestCase(TestCase):
         }
         User.objects.create_user(**self.credentials)
 
+        self.simple_passwords = [
+            {'username': 'admin', 'password': 'admin'},
+            {'username': 'root', 'password': 'root'},
+            {'username': 'denis', 'password': 'denis'},
+        ]
+
+    def test_active_debugger(self):
+        self.assertFalse(DEBUG, msg='Включен деббагер')
+
     def test_empty_password(self):
         request = HttpRequest()
         user = authenticate(request, username=self.credentials['username'], password='')
@@ -43,6 +52,7 @@ class LoginTestCase(TestCase):
         request = HttpRequest()
         user = authenticate(request, **self.credentials)
         self.assertFalse(user, 'AXES не заблокировал попытки входа')
+
 
 
 
