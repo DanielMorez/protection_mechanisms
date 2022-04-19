@@ -2,4 +2,7 @@
 db.sqlite3
 # Project exclude paths
 /venv/
+
 token.txt
+/logs
+tank_errors.log
