@@ -8,7 +8,7 @@ phantom:
   headers:
     - "[Host: 127.0.0.1]"
   uris:
-    - /
+    - /api/subscribes
   load_profile:
     load_type: rps
     schedule: line(5, 600, 120s) # const(30,30s)
