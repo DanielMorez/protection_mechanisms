@@ -6,4 +6,4 @@ from app.models import Subscribe
 class SubscribeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscribe
-        fields = ('started', 'ended', 'user')
+        fields = ('started', 'ended', 'user', 'social_media', 'address', 'phone')

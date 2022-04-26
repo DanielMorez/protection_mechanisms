@@ -16,3 +16,7 @@ class AutomaticUserLoginMiddleware(MiddlewareMixin):
     def _is_user_authenticated(request):
         user = request.user
         return user and user.is_authenticated
+
+
+# class BlockUserMiddleware(MiddlewareMixin):
+#     def process_view(self, request, *args, **kwargs):

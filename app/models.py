@@ -16,6 +16,16 @@ class Subscribe(models.Model):
         related_name='subscribes',
         on_delete=models.CASCADE
     )
+    social_media = models.URLField(
+        null=True,
+    )
+    address = models.EmailField(
+        null=True,
+    )
+    phone = models.CharField(
+        max_length=15,
+        null=True,
+    )
 
     class Meta:
         ordering = ('started',)

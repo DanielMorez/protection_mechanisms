@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import authenticate
 from django.http import HttpRequest
 from django.test import TestCase
@@ -23,7 +24,7 @@ class LoginTestCase(TestCase):
         ]
 
     def test_active_debugger(self):
-        self.assertFalse(DEBUG, msg='Включен деббагер')
+        self.assertFalse(settings.DEBUG, msg='Включен деббагер')
 
     def test_empty_password(self):
         request = HttpRequest()

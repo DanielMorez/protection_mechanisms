@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # other apps
     'axes',
     'rest_framework',
+    'django_filters',
     'app',
     'conditional_сompilation',
 ]
@@ -110,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # DJANGO REST FRAMEWORK
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 5
 }
@@ -142,6 +144,9 @@ AXES_USE_USER_AGENT = False
 AXES_COOLOFF_TIME = timedelta(seconds=10)  # Ограничение по времени (в часах)
 AXES_FAILURE_LIMIT = 3  # Количество неудачных попыток
 AXES_LOCK_OUT_AT_FAILURE = True  # Блокировать IP после неудачной попытки входа
+
+# CUSTOM MIDDLEWARE
+RPS_FOR_BLOCK = 5
 
 AUTHENTICATION_BACKENDS = [
     # AxesBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
